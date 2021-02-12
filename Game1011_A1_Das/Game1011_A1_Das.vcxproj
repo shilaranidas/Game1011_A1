@@ -140,6 +140,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Game1011_A1_Das.cpp" />
+    <ClCompile Include="GamingStudent.cpp" />
+    <ClCompile Include="NonGamingStudent.cpp" />
+    <ClCompile Include="Person.cpp" />
+    <ClCompile Include="Student.cpp" />
+    <ClCompile Include="Survey.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GamingStudent.h" />
+    <ClInclude Include="NonGamingStudent.h" />
+    <ClInclude Include="Person.h" />
+    <ClInclude Include="Student.h" />
+    <ClInclude Include="Survey.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
