@@ -2,6 +2,8 @@
 #include <string>
 #include <map>
 #include "Student.h"
+#include "NonGamingStudent.h"
+#include "GamingStudent.h"
 class Survey
 {
 private:
@@ -77,13 +79,51 @@ public:
 	}
 	string getMostPreferedService() { return m_mostPreferedService; }
 	string getMostPreferedDevice() { return m_MostPreferedDevice; }
-	void addParticipant(Student* student, int StudentType);
+	void addGamingParticipant(GamingStudent* student);
+	void addNonGamingParticipant(NonGamingStudent* student);
 
 	void GenerateData();
 	void processSurvey();
 	~Survey() {
 		delete[] m_participants;
 		m_participants = nullptr;
+	}
+
+	//key value pair map
+	//key = service, value = count
+	std::map<string, int> servicesMap;
+	void serviceCount(string service) {
+		int count = 1;
+		//create a pair of map and bool
+		pair<map<string, int>::iterator, bool> value;
+
+		//insert element
+		value = servicesMap.insert(pair<string, int>(service, count));
+
+		//Check if map contains value
+		if (value.second == false)
+		{
+			//Element already exists
+			++value.first->second;
+		}
+	}
+	//key value pair map
+	//key = service, value = count
+	std::map<string, int> devicesMap;
+	void deviceCount(string device) {
+		int count = 1;
+		//create a pair of map and bool
+		pair<map<string, int>::iterator, bool> value;
+
+		//insert element
+		value = devicesMap.insert(pair<string, int>(device, count));
+
+		//Check if map contains value
+		if (value.second == false)
+		{
+			//Element already exists
+			++value.first->second;
+		}
 	}
 };
 
