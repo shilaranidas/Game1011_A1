@@ -2,7 +2,8 @@
 
 Person::Person(string name, int age)
 {
-	m_name = name; m_age = age;
+	setName(name);
+	setAge(age);
 }
 
 Person::~Person()

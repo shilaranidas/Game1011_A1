@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <string>
 using namespace std;
@@ -15,6 +16,10 @@ public:
 	Person(string name, int age);
 	~Person();
 	virtual int GetAge() = 0;
+	void setName(string name)
+	{
+		m_name = name;
+	}
 	void setAge(int age) {
 		m_age = age;
 	}

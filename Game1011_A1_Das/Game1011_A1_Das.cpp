@@ -2,10 +2,54 @@
 //
 
 #include <iostream>
+#include <string>
+#include <time.h>
+#include "Survey.h"
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+
+
+	cout << "welcome in assignment 1(survey).\n";
+	cout << "How many participants will participate in this survey (max 500).\n";
+	int no_participiant;
+	bool v = false;
+	do
+	{
+		std::cin >> no_participiant;
+		if (no_participiant > 500)
+		{
+			std::cout << "invalid number of participant.\n";
+		}
+		else
+			v = true;
+	} while (v != true);
+	//Randomly generate those participants. Add them to the Survey class.
+	srand(time(NULL));
+	Survey survey = Survey(no_participiant);
+	survey.GenerateData();
+	char ready;
+	cout << "Are you ready to process the survey? Y/N\n";
+	cin >> ready;
+	if(ready == 'Y' || ready == 'y')
+	{
+		survey.processSurvey();
+		std::cout << "---------------------------------------------------------------"<<endl;
+		std::cout << "# of Non Gaming Students: " << survey.getNoOfNonGamingStudent() << endl;
+		std::cout << "\tAverage age: " << survey.getAvgAgeNonGaming()<< "\n";
+		std::cout << "\tMost preferred streaming service (aka. mode): " << survey.getMostPreferedService() << "\n";
+		std::cout << "\tAverage hours per day spent consuming non-gaming entertainment: " << survey.getAvgHrNonGaming() << "\n";
+		std::cout << "---------------------------------------------------------------" << endl;
+		std::cout << "# of Gaming Students: " << survey.getNoOfGamingStudent() << endl;
+		std::cout << "\tAverage age: " << survey.getAvgAgeGaming() << "\n";
+		std::cout << "\tMost preferred gaming device: " << survey.getMostPreferedDevice() << "\n";
+		std::cout << "\tAverage hours per day spent consuming gaming entertainment: " << survey.getAvgHrGaming() << "\n";
+	}
+	
+		
+		
+	return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

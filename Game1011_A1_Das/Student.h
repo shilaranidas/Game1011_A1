@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <string>
 #include "Person.h"
@@ -41,6 +42,6 @@ public:
 	int GetAge() override{
 		return m_age;
 	}
-	//virtual int GetHours() = 0;
+	virtual int GetHours() = 0;
 };
 
